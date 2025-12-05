@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Copy</title>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const searchParams = new URLSearchParams(window.location.search);
+        document.getElementById('copy').value = searchParams.get('text') || '';
+      });
+      const copyFn = () => {
+        const input = document.getElementById('copy').value;
+        navigator.clipboard.writeText(input);
+        alert('복사 완료');
+      }
+    </script>
+  </head>
+  <body style="display: flex; flex-direction: column; gap: 0.5rem; margin: 1rem;">
+    <textarea id="copy" style="font-size: 1rem;"></textarea>
+    <button id="copy-btn" onclick="copyFn()" style="height: 2rem; font-size: 1.2rem;">Copy / 복사</textarea>
+  </body>
+</html>
